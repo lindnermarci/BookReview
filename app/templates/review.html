@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home page
+{% endblock %}
+
+{% block body %}
+    <h1>Book's Details</h1>
+    <h3>{{ book.author }} - {{ book.title}}</h3>
+    
+    <form action="{{ url_for('review')}}" method="post">
+    <ul>
+        <li>ISBN:<span method="GET" name="book_id">{{book.id}}</span></li>
+        <li>Year: {{book.year}}</li>
+    </ul>
+    <h3>Reviews left:</h1>
+        {% for review in reviews %}
+                <ul>
+                    <li>Comment: {{review.text}}</li>
+                    <li>Rating: {{review.rating}}</li>
+                </ul>
+                <br>
+        {% endfor %}
+    
+    <br>
+    <h3>Your review</h3>
+        <select name="rating" class="form-control" >
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+        </select>
+        <div class="form-group">
+            <input class="form-control" name="review" placeholder="my review">
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-primary">Leave review</button>
+        </div>
+
+    </form>
+{% endblock %}

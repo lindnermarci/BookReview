@@ -1,0 +1,9 @@
+body {
+	background-image: url("background.jpg");
+}
+
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}

@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sign in
+{% endblock %}
+
+{% block body %}
+    <h1>Welcome to my Book database!</h1>
+
+    <h2>Please sign in</h1>
+
+    <form action="{{ url_for('signin') }}" method="post">
+        Username:<br>
+        <input type="text" name="username"><br>
+        Password:<br>
+        <input type="password" name="password">
+        <button class="btn btn-primary">Sign in</button>
+    </form>
+
+    <form action="{{ url_for('signup') }}" method="post">
+    <h3>You don't have an account yet?</h3>
+        <input type="text" name="username" placeholder="your username"><br>
+        <input type="password" name="password" placeholder="your password">
+        <button class="btn btn-primary">Sign up</button>
+    </form>
+{% endblock %}
